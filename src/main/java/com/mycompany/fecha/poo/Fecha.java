@@ -1,5 +1,7 @@
 package com.mycompany.fecha.poo;
 
+import java.util.HashMap;
+
 public class Fecha {
     private int dia;
     private int mes;
@@ -40,13 +42,32 @@ public class Fecha {
                 }else{
                     return false;
                 }
-            }else if((this.mes==1||this.mes==3||this.mes==5||this.mes==7||this.mes==8||this.mes==10||this.mes==12)&&(this.mes>=1&&this.mes<=12)){
-                if(this.dia>=1&&this.dia<=31){
-                    return true;
-                }else{
-                    return false;
-                }
+        }else if((this.mes==1||this.mes==3||this.mes==5||this.mes==7||this.mes==8||this.mes==10||this.mes==12)&&(this.mes>=1&&this.mes<=12)){
+            if(this.dia>=1&&this.dia<=31){
+                return true;
+            }else{
+                return false;
             }
         }
+        return false;
+    }
+    
+    public String mesLetra(){
+        HashMap<String, String> meses = new HashMap<>();
+        
+        meses.put("1","Enero");
+        meses.put("2","Febrero");
+        meses.put("3","Marzo");
+        meses.put("4","Abril");
+        meses.put("5","Mayo");
+        meses.put("6","Junio");
+        meses.put("7","Julio");
+        meses.put("8","Agosto");
+        meses.put("9","Septiembre");
+        meses.put("10","Octubre");
+        meses.put("11","Noviembre");
+        meses.put("12","Diciembre");
+
+        return meses.get(this.mes);
     }
 }

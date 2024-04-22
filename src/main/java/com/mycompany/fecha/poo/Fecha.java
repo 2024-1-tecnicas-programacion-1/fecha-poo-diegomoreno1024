@@ -7,16 +7,19 @@ public class Fecha {
     private int mes;
     private int anio;
     
+    //Este constructor tiene una complejidad constante, O(1).
     public Fecha(int dia, int mes, int anio){
         this.dia = dia;
         this.mes = mes;
         this.anio = anio;
     }
+    //La complejidad de este método es constante, O(1).
     public String fechaCorta(){
         return dia+"/"+mes+"/"+anio;
     }
+    //La complejidad de este método es constante, O(1).
     public boolean validarFecha(){
-        if((this.anio%4==0 && this.anio%100!=0)||(anio%400==0)){
+        if((this.anio%4==0 && this.anio%100!=0)||(this.anio%400==0)){
             if(this.mes==2&&(this.mes>=1&&this.mes<=12)){
                 if(this.dia>=1&&this.dia<=29){
                     return true;
@@ -51,7 +54,7 @@ public class Fecha {
         }
         return false;
     }
-    
+    //La complejidad de este método es constante, O(1).
     public String mesLetra(){
         HashMap<String, String> meses = new HashMap<>();
         
@@ -67,7 +70,13 @@ public class Fecha {
         meses.put("10","Octubre");
         meses.put("11","Noviembre");
         meses.put("12","Diciembre");
-
-        return meses.get(this.mes);
+        
+        String mesToString = String.valueOf(this.mes);
+        return meses.get(mesToString);
+    }
+    //La complejidad de este método es constante, O(1).
+    public String fechaLarga(){
+        String mesString= mesLetra();
+        return this.dia+" de "+ mesString+" de "+this.anio;
     }
 }
